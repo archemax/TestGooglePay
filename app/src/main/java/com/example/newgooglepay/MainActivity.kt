@@ -50,10 +50,10 @@ class MainActivity : AppCompatActivity() {
         webView = findViewById(R.id.webView)
         googlePayButton = findViewById<Button>(R.id.googlePayButton)
 
-         detailTitle= findViewById(R.id.detailTitle)
-         detailDescription= findViewById(R.id.detailDescription)
-         detailPrice= findViewById(R.id.detailPrice)
-         detailImage= findViewById(R.id.detailImage)
+        detailTitle = findViewById(R.id.detailTitle)
+        detailDescription = findViewById(R.id.detailDescription)
+        detailPrice = findViewById(R.id.detailPrice)
+        detailImage = findViewById(R.id.detailImage)
 
         setupWebView()
 
@@ -87,6 +87,13 @@ class MainActivity : AppCompatActivity() {
         settings.domStorageEnabled = true
 
 
+    }
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
 
